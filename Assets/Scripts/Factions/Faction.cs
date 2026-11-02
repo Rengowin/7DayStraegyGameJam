@@ -1,16 +1,21 @@
+using NUnit.Framework;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Faction : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    //is serialized for testing purposes
+    [SerializeField]
+    int gold = 0;
+    [SerializeField]
+    FactionEnum factionEnum;
+
+    public int Gold => gold;
+    public FactionEnum GetFactionEnum()
     {
-        
+        return factionEnum;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //buff list for the faction, buffs are applied to all units of the faction
+
 }

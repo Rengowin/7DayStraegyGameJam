@@ -1,24 +1,40 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
-using UnityEngine.UI;
 using UnityEngine.AI;
 public class UnitMovement : MonoBehaviour
 {
-    [SerializeField]
-    UnitStats unitStats;
+    AlllWayPoints allWayPoints;
+
     bool moveToWayPoint = true;
-    [SerializeField]
-    float targetRange = 10f;
-    [SerializeField]
-    List<GameObject> waypoints = new List<GameObject>();
 
     [SerializeField]
+    List<WayPoint> waypoints;
+
+    Unit unit;
     NavMeshAgent agent;
 
-    //idk if needed but for test stuff its now :D
-    int currentWaypointIndex = 0;
+    Rigidbody rb;
+    SphereCollider sphereCollider;
 
+    private void Awake()
+    {
+        unit = GetComponent<Unit>();
+        agent = GetComponent<NavMeshAgent>();
+
+        rb = GetComponent<Rigidbody>();
+        sphereCollider = GetComponent<SphereCollider>();
+    }
+
+    private void Start()
+    {
+        agent.speed = unit.UnitStats.Movement;
+
+        sphereCollider.radius = unit.UnitStats.TargetRange;
+
+        allWayPoints = AlllWayPoints.Instance;
+        waypoints = allWayPoints.GetWayPoints();
+    }
 
     void Update()
     {
@@ -30,12 +46,45 @@ public class UnitMovement : MonoBehaviour
 
     void MoveToWayPoint()
     {
-        Debug.Log("Moving to waypoint");
-        if (currentWaypointIndex < waypoints.Count)
+        foreach (WayPoint wayPoint in waypoints)
         {
-            Vector3 targetPosition = waypoints[currentWaypointIndex].transform.position;
-            targetPosition.y = 0;
-            agent.SetDestination(targetPosition);
+            if (wayPoint.Faction != unit.FactionEnum)
+            {
+                Vector3 targetPosition = wayPoint.transform.position;
+                targetPosition.y = 0;
+                agent.SetDestination(targetPosition);
+            }
+        }
+    }
+
+    void MoveToTarget()
+    {
+        // insteat of moving to a waypoint, move to a target unit, unitl atkrange is met
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Unit otherUnit = other.GetComponent<Unit>();
+        if (otherUnit != null && unit.IsEnemy(otherUnit))
+        {
+            moveToWayPoint = false;
+            if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+            {
+                agent.isStopped = true;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Unit otherUnit = other.GetComponent<Unit>();
+        if (otherUnit != null && unit.IsEnemy(otherUnit))
+        {
+            moveToWayPoint = true;
+            if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+            {
+                agent.isStopped = false;
+            }
         }
     }
 }

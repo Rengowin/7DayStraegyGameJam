@@ -6,30 +6,34 @@ public class UnitStats : ScriptableObject
 {
     [Header("Unit Type")]
     [SerializeField]
-    UnitComboTyps unitComboTyp;
+    UnitType unitType;
+    [Header("Target Priority")]
+    [SerializeField]
+    TargetPriority targetPriority;
 
     [Header("Combat Stats")]
     [SerializeField]
     float health;
     [SerializeField]
     float attack;
-    [SerializeField]
-    float defense;
 
-    [Header("Attack Range")]
+    [Header("Range Stats")]
     [SerializeField]
     float attackRange;
+    [SerializeField]
+    float targetRange;
+    [SerializeField]
+    float aoeRange = 0f;
 
     [Header("Movement")]
     [SerializeField]
     float movement;
 
-    public UnitComboTyps UnitComboTyp => unitComboTyp;
+    public UnitType UnitType => unitType;
     public float Health => health;
-    public float Attack { get => attack; set => attack = value; }
-    public float Defense { get => defense; set => defense = value; }
-    public float AttackRange { get => attackRange; set => attackRange = value; }
-    public float Movement { get => movement; set => movement = value; }
-
-
+    public float Attack => attack;
+    public float AttackRange => attackRange;
+    public float TargetRange => targetRange;
+    public float AoeRange => aoeRange;
+    public float Movement => movement;
 }

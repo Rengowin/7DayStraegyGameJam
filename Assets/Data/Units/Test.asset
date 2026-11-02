@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9c65a1d6d9717488d16a181c3f0aac, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: Assembly-CSharp::UnitStats
-  unitComboTyp: {fileID: 11400000, guid: 2cb4d8434ad3c9e4eb3b23ed7bc03e51, type: 2}
+  unitType: 0
+  targetPriority: 0
   health: 10
-  attack: 1
-  defense: 0
+  attack: 10
   attackRange: 5
+  targetRange: 50
+  aoeRange: 0
   movement: 10

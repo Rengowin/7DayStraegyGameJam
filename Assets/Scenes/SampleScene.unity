@@ -231,6 +231,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226392366}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &288367365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 288367367}
+  - component: {fileID: 288367366}
+  m_Layer: 0
+  m_Name: AlllWayPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &288367366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288367365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8f9b175f8d80745b76391f3c2f8e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AlllWayPoints
+  waypoints:
+  - {fileID: 1432533382}
+  - {fileID: 355863936}
+--- !u!4 &288367367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288367365}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 37.26872, y: 0.00001, z: 43.01738}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +427,7 @@ GameObject:
   - component: {fileID: 355863934}
   - component: {fileID: 355863933}
   - component: {fileID: 355863932}
+  - component: {fileID: 355863936}
   m_Layer: 0
   m_Name: HQEnemy
   m_TagString: Untagged
@@ -480,6 +528,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &355863936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355863931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bab8a78c81e7543833dc8ccef33593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WayPoints
+  factionEnum: 1
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8313747859658475183, guid: c250b69a9d9204241972dedcdadc57b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 42.7
+      value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 8313747859658475183, guid: c250b69a9d9204241972dedcdadc57b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -996,6 +1057,7 @@ GameObject:
   - component: {fileID: 1432533380}
   - component: {fileID: 1432533379}
   - component: {fileID: 1432533378}
+  - component: {fileID: 1432533382}
   m_Layer: 0
   m_Name: HQPlayer
   m_TagString: Untagged
@@ -1096,6 +1158,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1432533382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432533377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bab8a78c81e7543833dc8ccef33593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WayPoints
+  factionEnum: 0
 --- !u!4 &1663406518 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8313747859658475183, guid: c250b69a9d9204241972dedcdadc57b9, type: 3}
@@ -1125,9 +1200,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnitRangeTest (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5323463120057944287, guid: c250b69a9d9204241972dedcdadc57b9, type: 3}
+      propertyPath: factionEnum
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8313747859658475183, guid: c250b69a9d9204241972dedcdadc57b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 42.7
+      value: -460.3
       objectReference: {fileID: 0}
     - target: {fileID: 8313747859658475183, guid: c250b69a9d9204241972dedcdadc57b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1196,7 +1275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8313747859658475183, guid: c250b69a9d9204241972dedcdadc57b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 42.7
+      value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 8313747859658475183, guid: c250b69a9d9204241972dedcdadc57b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1263,13 +1342,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnitRangeTest (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5323463120057944287, guid: c250b69a9d9204241972dedcdadc57b9, type: 3}
+      propertyPath: factionEnum
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5647757550880621580, guid: c250b69a9d9204241972dedcdadc57b9, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8313747859658475183, guid: c250b69a9d9204241972dedcdadc57b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 44.38
+      value: -458.62
       objectReference: {fileID: 0}
     - target: {fileID: 8313747859658475183, guid: c250b69a9d9204241972dedcdadc57b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1399,3 +1482,4 @@ SceneRoots:
   - {fileID: 1794801084}
   - {fileID: 1683557595}
   - {fileID: 1798484581}
+  - {fileID: 288367367}
