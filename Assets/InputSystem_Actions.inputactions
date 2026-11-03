@@ -1045,13 +1045,13 @@
             "id": "1353adb7-bde9-4f3b-b91b-6027f07bcb07",
             "actions": [
                 {
-                    "name": "Left/Right",
-                    "type": "Button",
+                    "name": "CamMove",
+                    "type": "Value",
                     "id": "49763a9b-9b0a-477c-b25f-2dfcdaba349b",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false,
+                    "initialStateCheck": true,
                     "priority": 0
                 },
                 {
@@ -1077,42 +1077,9 @@
             ],
             "bindings": [
                 {
-                    "name": "1D Axis",
-                    "id": "489411bb-ae0a-4496-bd7b-714a175a4aed",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Left/Right",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "21e14316-0cad-4bd8-bc46-f436ab74b33c",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Left/Right",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "424cf773-287a-41f9-ae42-a8eaab8b7ccc",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Left/Right",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "6874f32e-c79a-4269-9179-c26618e479a3",
-                    "path": "",
+                    "path": "<Mouse>/scroll/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1152,6 +1119,90 @@
                     "action": "CamSpeedIncrese/Decrease",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "WASD",
+                    "id": "2aa1c6fa-a068-461b-b9e1-28d38a6b724e",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CamMove",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "5f37c54a-50a1-48ad-9a68-6d34713a0e77",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "CamMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "bae9e9f8-48d9-4f75-9377-f3768f8c70d7",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "CamMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "dfd4c6b0-278a-4572-9ef0-e92f54d13ca5",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "CamMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "2db2f0b6-bf00-46a5-8678-230f5be42c2c",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "CamMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Core",
+            "id": "b660079f-d6ce-4d58-a4bb-ce6ba7af6cf1",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "fb52bcd9-00a4-4f99-8688-036d07615ed5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3aad3267-7fcc-47b2-a022-04ca083593c7",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

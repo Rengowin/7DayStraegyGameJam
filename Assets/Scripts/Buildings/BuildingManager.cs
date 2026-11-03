@@ -36,7 +36,7 @@ public class BuildingManager : MonoBehaviour
 
     public void SpawnBuilding(BuildingData buildingData, FactionEnum faction)
     {
-        if(faction == FactionEnum.Player)
+        if (faction == FactionEnum.Player)
         {
             Building newBuilding = Instantiate(
                 buildingData.BuildingPrefab,

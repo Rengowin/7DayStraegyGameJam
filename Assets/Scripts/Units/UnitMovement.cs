@@ -6,7 +6,7 @@ public class UnitMovement : MonoBehaviour
 {
     AlllWayPoints allWayPoints;
 
-    bool moveToWayPoint = true;
+    bool isFollowingWaypoints = true;
 
     [SerializeField]
     List<WayPoint> waypoints;
@@ -14,23 +14,22 @@ public class UnitMovement : MonoBehaviour
     Unit unit;
     NavMeshAgent agent;
 
-    Rigidbody rb;
-    SphereCollider sphereCollider;
+    public bool IsFollowingWaypoints
+    {
+        get => isFollowingWaypoints;
+        set => isFollowingWaypoints = value;
+    }
 
     private void Awake()
     {
         unit = GetComponent<Unit>();
         agent = GetComponent<NavMeshAgent>();
 
-        rb = GetComponent<Rigidbody>();
-        sphereCollider = GetComponent<SphereCollider>();
     }
 
     private void Start()
     {
         agent.speed = unit.UnitStats.Movement;
-
-        sphereCollider.radius = unit.UnitStats.TargetRange;
 
         allWayPoints = AlllWayPoints.Instance;
         waypoints = allWayPoints.GetWayPoints();
@@ -38,7 +37,7 @@ public class UnitMovement : MonoBehaviour
 
     void Update()
     {
-        if (moveToWayPoint)
+        if (IsFollowingWaypoints)
         {
             MoveToWayPoint();
         }
@@ -60,31 +59,5 @@ public class UnitMovement : MonoBehaviour
     void MoveToTarget()
     {
         // insteat of moving to a waypoint, move to a target unit, unitl atkrange is met
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Unit otherUnit = other.GetComponent<Unit>();
-        if (otherUnit != null && unit.IsEnemy(otherUnit))
-        {
-            moveToWayPoint = false;
-            if (agent.isActiveAndEnabled && agent.isOnNavMesh)
-            {
-                agent.isStopped = true;
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        Unit otherUnit = other.GetComponent<Unit>();
-        if (otherUnit != null && unit.IsEnemy(otherUnit))
-        {
-            moveToWayPoint = true;
-            if (agent.isActiveAndEnabled && agent.isOnNavMesh)
-            {
-                agent.isStopped = false;
-            }
-        }
     }
 }
