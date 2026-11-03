@@ -13,14 +13,14 @@ public class Unit : MonoBehaviour
     public UnitStats UnitStats => unitStats;
     public FactionEnum FactionEnum => factionEnum;
 
+    public void Init(FactionEnum faction)
+    {
+        factionEnum = faction;
+    }
+
     private void Awake()
     {
         currentHealth = unitStats.Health;
-    }
-
-    public void Init(Faction faction)
-    {
-        factionEnum = faction.GetFactionEnum();
     }
 
     public void TakeDamage(float damage)
