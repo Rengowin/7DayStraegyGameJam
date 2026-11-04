@@ -30,10 +30,15 @@ public class Unit : MonoBehaviour
         factionEnum = faction;
     }
 
-    private void Awake()
+    void Awake()
     {
         currentHealth = unitStats.Health;
         unitMovement = GetComponent<UnitMovement>();
+    }
+
+    void Update()
+    {
+        LookForTarget();
     }
 
     public void TakeDamage(float damage)

@@ -41,6 +41,10 @@ public class UnitMovement : MonoBehaviour
         {
             MoveToWayPoint();
         }
+        else
+        {
+            MoveToTarget();
+        }
     }
 
     void MoveToWayPoint()
@@ -58,6 +62,11 @@ public class UnitMovement : MonoBehaviour
 
     void MoveToTarget()
     {
-        // insteat of moving to a waypoint, move to a target unit, unitl atkrange is met
+        if (unit.Target != null)
+        {
+            Vector3 targetPosition = unit.Target.position;
+            targetPosition.y = 0;
+            agent.SetDestination(targetPosition);
+        }
     }
 }
